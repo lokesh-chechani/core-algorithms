@@ -1,0 +1,37 @@
+package com.me.core;
+
+public class WordToken {
+
+    public static String solution(String message, int K) {
+
+       // String result = message;
+
+        if(K >= message.length()){
+            return message;
+        }
+
+
+        String [] tokens = message.split(" ");
+
+        String result = "";
+        int len=0;
+        for (String token : tokens){
+
+            if(len <= K && (len+token.length()) <=K){
+                result += token+" ";
+                len = result.length();
+            }
+            else
+                break;
+        }
+        return result.trim();
+    }
+
+    public static void main(String[] args) {
+        String s1 = "This is a test";
+
+        System.out.println(solution(s1,11));
+
+    }
+
+}
